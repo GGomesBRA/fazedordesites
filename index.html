@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazedor de Sites | Seu site pronto em minutos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --card: #0d111f;
+      --primary: #4be1ec;
+      --primary-strong: #7cf5a0;
+      --accent: #f9ed69;
+      --text: #e9edf5;
+      --muted: #9fb2d0;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 20px 80px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --glow: 0 0 35px rgba(75,225,236,0.4);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text); background: radial-gradient(120% 120% at 20% 20%, rgba(75,225,236,0.15), transparent 45%), radial-gradient(110% 110% at 80% 10%, rgba(124,245,160,0.12), transparent 50%), var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { max-width: 1180px; margin: 0 auto; padding: 32px 20px 80px; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; position: sticky; top: 0; backdrop-filter: blur(12px); background: rgba(3,7,18,0.75); z-index: 10; border-bottom: 1px solid var(--border); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -0.02em; }
+    .logo { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,#4be1ec,#7cf5a0); display: grid; place-items: center; color: #041017; font-weight: 800; box-shadow: var(--glow); }
+    .pill { background: rgba(75,225,236,0.12); border: 1px solid rgba(75,225,236,0.3); color: var(--primary); padding: 10px 16px; border-radius: 999px; font-weight: 600; letter-spacing: -0.01em; }
+    .hero { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 28px; padding: 32px 0 12px; align-items: center; }
+    h1 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(2.6rem, 4vw, 3.6rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 14px; }
+    .lede { color: var(--muted); font-size: 1.05rem; max-width: 640px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; align-items: center; }
+    .btn { padding: 14px 22px; border-radius: 14px; border: 1px solid transparent; font-weight: 700; letter-spacing: -0.01em; cursor: pointer; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
+    .btn-primary { background: linear-gradient(135deg,#4be1ec,#7cf5a0); color: #041017; box-shadow: var(--glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 45px rgba(75,225,236,0.3); }
+    .btn-ghost { border-color: var(--border); color: var(--text); background: rgba(255,255,255,0.03); }
+    .price-tag { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; }
+    .old { text-decoration: line-through; color: #f47373; font-weight: 600; }
+    .new { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .timer { display: inline-flex; align-items: center; gap: 6px; background: rgba(249,237,105,0.12); color: var(--accent); padding: 8px 14px; border-radius: 999px; font-weight: 700; border: 1px dashed rgba(249,237,105,0.35); }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 28px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .card h3 { margin: 4px 0 8px; font-family: 'Space Grotesk'; letter-spacing: -0.01em; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 8px; }
+    .step { padding: 14px; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); font-weight: 600; }
+    .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; align-items: center; }
+    .illus { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 14px; }
+    .quote { padding: 16px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .quote:before { content: '“'; position: absolute; top: -26px; left: 12px; font-size: 70px; color: rgba(255,255,255,0.05); }
+    footer { margin-top: 40px; padding: 16px 0 12px; color: var(--muted); font-size: 0.95rem; border-top: 1px solid var(--border); }
+    .faq details { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+    .faq summary { cursor: pointer; font-weight: 600; }
+    @media (max-width: 640px) {
+      header { position: sticky; top: 0; }
+      .cta-row { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="brand"><div class="logo">FS</div><span>Fazedor de Sites</span></div>
+    <div class="pill">Lançamento relâmpago • economize 67%</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <h1>Seu site profissional em minutos. Sem código, sem espera.</h1>
+        <p class="lede">Converse com o agente de IA, escolha o estilo e veja seu site ganhar vida. Ele publica na Netlify quase instantaneamente e você pode pedir ajustes por chat sempre que quiser.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://hotmart.com" target="_blank" rel="noopener">Fazer meu site agora</a>
+          <a class="btn btn-ghost" href="/index-b.html">Ver variação B</a>
+          <span class="timer" id="timer">Oferta termina em 48:00:00</span>
+        </div>
+        <div class="price-tag">
+          <span class="old">R$ 300</span>
+          <span class="new">por R$ 99,90</span>
+          <span class="badge">Promoção de lançamento • vagas limitadas</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Como funciona</h3>
+        <div class="steps">
+          <div class="step"><strong>1. Fale com a IA</strong><br/>Descreva o estilo, cores e objetivo.</div>
+          <div class="step"><strong>2. Geramos e publicamos</strong><br/>Site vai ao ar na Netlify em minutos.</div>
+          <div class="step"><strong>3. Ajustes por chat</strong><br/>Peça mudanças e veja ao vivo.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card-grid">
+      <div class="card">
+        <h3>Velocidade absurda</h3>
+        <p>Sites prontos em minutos com deploy automático na Netlify. Nada de filas ou desenvolvedores ocupados.</p>
+      </div>
+      <div class="card">
+        <h3>Texto que converte</h3>
+        <p>Copywriting ajustado para gatilhos de escassez, ancoragem de preço e prova social, otimizado para vendas imediatas.</p>
+      </div>
+      <div class="card">
+        <h3>Controle total</h3>
+        <p>Peça revisões por chat sempre que quiser. A IA ajusta cores, seções e mensagens em segundos.</p>
+      </div>
+      <div class="card">
+        <h3>SEO e performance</h3>
+        <p>Estrutura limpa, imagens otimizadas e carregamento rápido para ranquear e converter melhor.</p>
+      </div>
+    </section>
+
+    <section class="split">
+      <img class="illus" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80" alt="Preview de site sendo construído" loading="lazy" />
+      <div class="card">
+        <h3>Por que agora?</h3>
+        <p>Estamos em lançamento: de <strong>R$ 300</strong> por <strong>R$ 99,90</strong>. Oferta válida apenas enquanto os primeiros slots estiverem abertos. Depois o valor volta ao normal.</p>
+        <div class="badge">Garantia de 7 dias ou seu dinheiro de volta</div>
+        <div class="cta-row" style="margin-top:16px;">
+          <a class="btn btn-primary" href="https://hotmart.com" target="_blank" rel="noopener">Garantir meu desconto</a>
+          <a class="btn btn-ghost" href="#faq">Tirar dúvidas</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-family:'Space Grotesk'; letter-spacing:-0.02em;">Depoimentos</h2>
+      <div class="testimonials">
+        <div class="quote"><strong>Marina · e-commerce</strong><br/>"Expliquei o que queria e em 5 minutos meu site estava no ar. Pedi ajustes de cor e headline e a IA fez na hora."</div>
+        <div class="quote"><strong>Leandro · agência</strong><br/>"Usei para lançar landing de campanha relâmpago. A ancoragem de preço aumentou o CTR do botão em 32%."</div>
+        <div class="quote"><strong>Ana · infoprodutora</strong><br/>"Integração com Hotmart pronta, só colei o link. Economizei dias e já vendi no primeiro dia."</div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq" style="margin-top:26px; display:grid; gap:10px;">
+      <details open>
+        <summary>Como o pagamento é feito?</summary>
+        <p>O checkout acontece na Hotmart. Você compra e já recebe o passo a passo para falar com a IA.</p>
+      </details>
+      <details>
+        <summary>Posso mudar cores e textos depois?</summary>
+        <p>Sim. Converse com a IA e ela publica as alterações rapidamente, sem custo extra.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo leva para o site ir ao ar?</summary>
+        <p>Em média 3 a 5 minutos após enviar o briefing inicial.</p>
+      </details>
+      <details>
+        <summary>E se eu não gostar?</summary>
+        <p>Você tem 7 dias para pedir reembolso completo.</p>
+      </details>
+    </section>
+
+    <section class="card" style="margin-top:24px; text-align:center;">
+      <h2 style="font-family:'Space Grotesk'; margin:6px 0 10px; letter-spacing:-0.02em;">Pronto para lançar?</h2>
+      <p class="lede" style="margin:0 auto 14px;">Bloqueie o preço promocional de R$ 99,90 antes que os slots acabem.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://hotmart.com" target="_blank" rel="noopener">Começar agora</a>
+        <a class="btn btn-ghost" href="/index-b.html">Ver design alternativo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div>Fazedor de Sites — IA que cria, publica e ajusta seu site em minutos.</div>
+  </footer>
+
+  <script>
+    const badge = document.getElementById('timer');
+    const key = 'fs-countdown-start';
+    const stored = localStorage.getItem(key);
+    const start = stored ? new Date(stored) : new Date();
+    if (!stored) localStorage.setItem(key, start.toISOString());
+    const deadline = new Date(start.getTime() + 48 * 60 * 60 * 1000);
+    const tick = () => {
+      const now = new Date();
+      const diff = deadline - now;
+      if (diff <= 0) {
+        badge.textContent = 'Últimas unidades!';
+        return;
+      }
+      const h = String(Math.floor(diff / 3_600_000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3_600_000) / 60_000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60_000) / 1000)).padStart(2, '0');
+      badge.textContent = `Oferta termina em ${h}:${m}:${s}`;
+      requestAnimationFrame(tick);
+    };
+    tick();
+  </script>
+</body>
+</html>
