@@ -1,0 +1,12 @@
+﻿[build]
+  publish = "."
+
+[[redirects]]
+  from = "/b"
+  to = "/index-b.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
